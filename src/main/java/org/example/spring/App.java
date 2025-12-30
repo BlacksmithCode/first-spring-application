@@ -5,8 +5,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("org.example.spring");
-        Vehicle vehicle = context.getBean("car", Vehicle.class);
-        vehicle.startEngine();
+        Person person = context.getBean("person", Person.class);
+        person.startVehicleEngine();
+
+        Parking parking = context.getBean("parking", Parking.class);
+        System.out.println(parking.getVehicleList());
+        System.out.println(parking.getVehicleMap());
         context.close();
     }
 }
